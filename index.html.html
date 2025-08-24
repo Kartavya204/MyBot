@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Mood Music</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffdee9, #b5fffc);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.6);
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      border-radius: 0 0 20px 20px;
+    }
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      padding: 25px;
+    }
+    .chatbot, .music {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+    .chatbot:hover, .music:hover {
+      transform: scale(1.02);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+    iframe {
+      border-radius: 15px;
+      border: none;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.6);
+      border-top: 2px solid rgba(255, 255, 255, 0.4);
+      border-radius: 20px 20px 0 0;
+    }
+    .mood-buttons {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      color: #fff;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    button:hover {
+      transform: scale(1.1);
+      background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    }
+  </style>
+</head>
+<body>
+  <header>🌸 🎶 AI Mood-based Music Experience 🎶 🌸</header>
+  
+  <main>
+    <!-- Chatbot Embed -->
+    <div class="chatbot">
+      <h2>💬 Cute AI Assistant</h2>
+      <script src='https://cdn.jotfor.ms/agent/embedjs/0198dab6b097767ab72e713668c46c26aaf4/embed.js'></script>
+    </div>
+    
+    <!-- Spotify Player -->
+    <div class="music">
+      <h2>🎵 Mood Music</h2>
+      <iframe id="spotifyPlayer"
+        src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0XUfTFmNBRM?utm_source=generator" 
+        width="100%" height="352" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy">
+      </iframe>
+      
+      <!-- Mood buttons -->
+      <div class="mood-buttons">
+        <button onclick="playMood('happy')">😊 Happy</button>
+        <button onclick="playMood('sad')">😢 Sad</button>
+        <button onclick="playMood('romantic')">💕 Romantic</button>
+        <button onclick="playMood('energetic')">⚡ Energetic</button>
+        <button onclick="playMood('chill')">🌙 Chill</button>
+      </div>
+    </div>
+  </main>
+  
+  <footer>✨ Made with love & music for you 💖 ✨</footer>
+
+  <script>
+    function playMood(mood) {
+      const player = document.getElementById("spotifyPlayer");
+      let playlist = "";
+
+      switch(mood) {
+        case "happy":
+          playlist = "37i9dQZF1DXdPec7aLTmlC"; // Happy Hits
+          break;
+        case "sad":
+          playlist = "37i9dQZF1DWSqBruwoIXkA"; // Sad Songs
+          break;
+        case "romantic":
+          playlist = "37i9dQZF1DWXbLOeOIhbc4"; // Romantic
+          break;
+        case "energetic":
+          playlist = "37i9dQZF1DX1s9knjP51Oa"; // Energetic
+          break;
+        case "chill":
+          playlist = "37i9dQZF1DX4WYpdgoIcn6"; // Chill
+          break;
+        default:
+          playlist = "37i9dQZF1DX0XUfTFmNBRM";
+      }
+
+      player.src = `https://open.spotify.com/embed/playlist/${playlist}?utm_source=generator`;
+    }
+  </script>
+</body>
+</html>
